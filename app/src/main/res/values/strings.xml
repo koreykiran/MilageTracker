@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MileageTracker</string>
+    <string name="logo">Logo</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="noAccount">Don\'t have an Account?</string>
+    <string name="create">Sign Up here!</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="description">Describe yourself</string>
+    <string name="password2">Confirm Password</string>
+    <string name="profilepic">Profile Image</string>
+    <string name="signup">Sign Up</string>
+    <string name="cancel">Cancel</string>
+    <string name="welcome">Welcome,</string>
+    <string name="close">Close</string>
+    <string name="accept_terms"><![CDATA[I accept the Terms & Conditions]]></string>
+    <string name="terms_conditions">Terms and Conditions</string>
+</resources>

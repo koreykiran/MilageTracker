@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "74165592168",
+    "firebase_url": "https://milagetracker-d8765.firebaseio.com",
+    "project_id": "milagetracker-d8765",
+    "storage_bucket": "milagetracker-d8765.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74165592168:android:c78c209ee5528f09",
+        "android_client_info": {
+          "package_name": "com.uncc.mileagetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74165592168-uhra0ats8rcknt01pomongk97dv6u2fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGA3l8WDvzLMXbWw05Lkf7uOcGEYJg5ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74165592168-uhra0ats8rcknt01pomongk97dv6u2fp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

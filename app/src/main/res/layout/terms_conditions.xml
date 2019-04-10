@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    android:background="#f4f7f5">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:drawable/ic_delete"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/terms_conditions"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
