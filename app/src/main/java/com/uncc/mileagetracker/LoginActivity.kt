@@ -5,11 +5,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.uncc.mileagetracker.Models.User
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
 
     var mAuth : FirebaseAuth? = null
+    var userRef : DatabaseReference? = null
+    var currentUser : FirebaseUser? = null
+    var userProfile : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,11 +26,10 @@ class LoginActivity : BaseActivity() {
 
         mAuth = getFirebaseAuth()
 
-        if(mAuth!!.currentUser != null){
+        currentUser = mAuth!!.currentUser
 
-            val intent = Intent(this, UserActivity::class.java).apply {
-            }
-            startActivity(intent)
+        if(currentUser != null){
+            whichUser(currentUser!!.uid)
         }
 
 
@@ -44,6 +52,43 @@ class LoginActivity : BaseActivity() {
             performLogin()
         }
     }
+
+    private fun whichUser(userId:String){
+
+        userRef = getDatabaseReference().child("Users").child(userId)
+        if (currentUser != null) {
+
+            userRef!!.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    userProfile = dataSnapshot.getValue<User>(User::class.java)
+                    if(userProfile!=null)
+                        loadActivity()
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {}
+            })
+        }else{
+            Toast.makeText(this@LoginActivity, "Something went wrong", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+    private fun loadActivity(){
+        if(userProfile!!.isAdmin!!){
+            Toast.makeText(this@LoginActivity, "Admin Activity", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, AdminActivity::class.java).apply {
+            }
+            startActivity(intent)
+            finish()
+        }else{
+            Toast.makeText(this@LoginActivity, "User Activity", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, UserActivity::class.java).apply {
+            }
+            startActivity(intent)
+            finish()
+        }
+    }
+
     private fun performLogin(){
 
         if(etEmail.text.isBlank()){
@@ -65,10 +110,8 @@ class LoginActivity : BaseActivity() {
                 if (task.isSuccessful) {
 
                     if( mAuth!!.currentUser!!.isEmailVerified) {
-
-                        val intent = Intent(this, UserActivity::class.java).apply {
-                        }
-                        startActivity(intent)
+                        currentUser=mAuth!!.currentUser
+                        whichUser(currentUser!!.uid)
                     }
                     else
 

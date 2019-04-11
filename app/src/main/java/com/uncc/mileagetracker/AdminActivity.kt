@@ -2,7 +2,6 @@ package com.uncc.mileagetracker
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -15,7 +14,7 @@ import com.hendraanggrian.pikasso.picasso
 import com.uncc.mileagetracker.Models.User
 import kotlinx.android.synthetic.main.actionbar_layout.view.*
 
-class UserActivity : BaseActivity() {
+class AdminActivity : BaseActivity() {
 
     var userRef : DatabaseReference? = null
     var currentUser : FirebaseUser? = null
@@ -25,6 +24,7 @@ class UserActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         mAuth = getFirebaseAuth()
 
         currentUser = mAuth!!.currentUser
@@ -33,7 +33,7 @@ class UserActivity : BaseActivity() {
             finish()
             return
         }
-        setContentView(R.layout.activity_user)
+        setContentView(R.layout.activity_admin)
 
         val userId = getFirebaseAuth().currentUser!!.uid
         userRef = getDatabaseReference().child("Users").child(userId)
@@ -55,7 +55,7 @@ class UserActivity : BaseActivity() {
             })
 
         } else {
-            Toast.makeText(this@UserActivity, "Something Went Wrong", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@AdminActivity, "Something Went Wrong", Toast.LENGTH_LONG).show()
             finish()
         }
     }
@@ -79,10 +79,9 @@ class UserActivity : BaseActivity() {
             actionBarLayout.imgProfilePic.setImageResource(R.mipmap.ic_norm)
 
         actionBarLayout!!.logout.setOnClickListener{
-            Toast.makeText(this@UserActivity, "User Logged out", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@AdminActivity, "Admin Logged out", Toast.LENGTH_LONG).show()
             mAuth!!.signOut()
             finish()
         }
     }
-
 }

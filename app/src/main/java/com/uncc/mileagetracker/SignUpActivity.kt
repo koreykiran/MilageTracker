@@ -16,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.Toast
+import com.google.android.gms.tasks.OnSuccessListener
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -161,11 +162,11 @@ class SignUpActivity : BaseActivity() {
 
         }.addOnSuccessListener(this@SignUpActivity) { taskSnapshot ->
             // Handle successful uploads on complete
-            val downloadUrl = taskSnapshot.task.result.toString()
+            val downloadUrlTask = taskSnapshot.storage.downloadUrl
 
             setProgressProgressBar("Registering User...... " )
 
-            profileImageURL = downloadUrl!!.toString()
+            downloadUrlTask.addOnSuccessListener { uri -> profileImageURL = uri.toString() }
 
             saveUserToDB()
         }
@@ -195,7 +196,8 @@ class SignUpActivity : BaseActivity() {
                         etEmail.text.toString(),
                         profileImageURL,
                         gender,
-                        userId)
+                        userId,
+                        false)
 
                     currentUserDb.setValue(user)
                     //updateUserInfoAndUI()

@@ -9,6 +9,10 @@ class User {
     var photo: String? = null
     var gender: String? = null
     var id: String? = null
+    var isAdmin:Boolean? =false
+    var rides: ArrayList<Ride>? = null
+
+    constructor(){}
 
     constructor(_firstName: String?,
                 _lastName: String?,
@@ -16,7 +20,8 @@ class User {
                 _email: String?,
                 _photo: String?,
                 _gender: String?,
-                _id: String?) {
+                _id: String?,
+                _isAdmin:Boolean) {
 
         this.firstName = _firstName
         this.lastName = _lastName
@@ -25,5 +30,9 @@ class User {
         this.photo = _photo
         this.gender= _gender
         this.id = _id
+        this.isAdmin= _isAdmin
+
+        this.rides = ArrayList<Ride>()
     }
+
 }
