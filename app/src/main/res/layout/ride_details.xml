@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/popColor">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_det_rideId" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="163dp"
+            android:layout_marginStart="163dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="163dp" android:layout_marginRight="163dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:textStyle="bold" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/et_Start"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp" android:layout_marginTop="79dp" app:layout_constraintTop_toTopOf="parent"
+            android:hint="Start Reading"/>
+    <EditText
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/et_end" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:layout_marginTop="79dp"
+            app:layout_constraintTop_toTopOf="parent" android:hint="End Reading"/>
+    <TextView
+            android:text="Total:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_det_total" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="120dp" android:layout_marginStart="120dp" android:layout_marginTop="34dp"
+            app:layout_constraintTop_toBottomOf="@+id/et_Start" android:textStyle="bold" android:textSize="18sp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_det_totalVal" android:layout_marginEnd="94dp" android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="34dp"
+            app:layout_constraintTop_toBottomOf="@+id/et_end" app:layout_constraintStart_toEndOf="@+id/tv_det_total"
+            android:layout_marginLeft="20dp" android:layout_marginStart="20dp" android:textStyle="bold"
+            android:textSize="18sp"/>
+    <Button
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSubmit" android:layout_marginTop="34dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_det_total" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="70dp" android:layout_marginStart="70dp"/>
+    <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCancel" android:layout_marginEnd="75dp" android:layout_marginRight="75dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/btnSubmit"
+            android:layout_marginLeft="63dp" android:layout_marginStart="63dp" android:layout_marginTop="33dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_det_totalVal"/>
+</android.support.constraint.ConstraintLayout>

@@ -193,7 +193,7 @@ class SignUpActivity : BaseActivity() {
                     val user = User(etFirstName.text.toString(),
                         etLastName.text.toString(),
                         etDescription.text.toString(),
-                        etEmail.text.toString(),
+                        etEmail.text.toString().trim(),
                         profileImageURL,
                         gender,
                         userId,

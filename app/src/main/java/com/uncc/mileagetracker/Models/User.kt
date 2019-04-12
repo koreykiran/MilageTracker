@@ -35,4 +35,14 @@ class User {
         this.rides = ArrayList<Ride>()
     }
 
+    fun getUsers() : ArrayList<User>{
+
+        val users = arrayListOf<User>()
+
+
+
+        return users
+
+    }
+
 }

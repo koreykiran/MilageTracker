@@ -105,7 +105,7 @@ class LoginActivity : BaseActivity() {
         }
 
 
-        mAuth!!.signInWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
+        mAuth!!.signInWithEmailAndPassword(etEmail.text.toString().trim(), etPassword.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 

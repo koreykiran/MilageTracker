@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MileageTracker</string>
+    <string name="app_name">Ride Tracker</string>
     <string name="logo">Logo</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
