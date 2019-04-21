@@ -163,12 +163,28 @@ class UserActivity : BaseActivity() {
             var end :String?=null
             if(isValidForm(customView)) {
                 if (!customView.et_end.text.isBlank()) {
-                    end = customView.et_end.text.toString()
+                    if(isValidEnd(customView)){
+                        end = customView.et_end.text.toString()
+                    }
                 }
                 calculateAndSubmit(pos, customView.et_Start.text.toString(), end)
             }
         }
         mPopupWindow!!.showAtLocation(userAc, Gravity.CENTER,0,0);
+    }
+
+
+    private fun isValidEnd(view : View) : Boolean{
+
+        val start= Integer.parseInt(view.et_Start.text.toString())
+
+        val end= Integer.parseInt(view.et_end.text.toString())
+
+        if(end<start){
+            view.et_end.error = "Reading cannot be smaller than Start reading"
+            return false
+        }
+        return true
     }
 
     private fun isValidForm(view : View) : Boolean{

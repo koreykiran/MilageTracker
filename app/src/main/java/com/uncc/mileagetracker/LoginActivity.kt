@@ -58,7 +58,7 @@ class LoginActivity : BaseActivity() {
         userRef = getDatabaseReference().child("Users").child(userId)
         if (currentUser != null) {
 
-            userRef!!.addValueEventListener(object : ValueEventListener {
+            userRef!!.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     userProfile = dataSnapshot.getValue<User>(User::class.java)
                     if(userProfile!=null)
